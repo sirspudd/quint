@@ -102,7 +102,7 @@ Rectangle {
         MediaPlayer {
             id: mp
             source: "big_buck_bunny_720p_surround.avi"
-            playing: false
+            //playing: false
             Component.onCompleted: {
                 playTimer.start();
             }

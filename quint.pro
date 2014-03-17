@@ -1,4 +1,4 @@
-QT += declarative declarative-private quick
+QT += quick gui-private
 
 rpi: DEFINES += NO_QUICKVIEW
 

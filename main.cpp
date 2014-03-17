@@ -24,14 +24,15 @@ SOFTWARE.
 
 #include <QtCore/qdebug.h>
 #include <QtCore/qabstractanimation.h>
-#include <QtDeclarative/qdeclarative.h>
-#include <QtDeclarative/qdeclarativeengine.h>
-#include <QtDeclarative/qdeclarativecomponent.h>
+#include <QtQml/qqml.h>
+#include <QtQml/qqmlengine.h>
+#include <QtQml/qqmlcomponent.h>
 #include <QtCore/qdir.h>
-#include <QtDeclarative/qdeclarativecontext.h>
+#include <QtQml/qqmlcontext.h>
 
 #include <QGuiApplication>
 #include <QtGui/QCursor>
+#include <QtGui/qpa/qplatformwindow.h>
 
 #include <QtCore/qmath.h>
 
@@ -43,7 +44,7 @@ int main(int argc, char ** argv)
 {
     QGuiApplication app(argc, argv);
     QWindow *window = 0;
-    QDeclarativeEngine *engine = 0;
+    QQmlEngine *engine = 0;
     CodeModel *model = 0;
     model = new CodeModel();
 
@@ -63,7 +64,8 @@ int main(int argc, char ** argv)
     QObject::connect(engine, SIGNAL(quit()), QCoreApplication::instance(), SLOT(quit()));
 
     //window->setWindowFlags(Qt::Window | Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
-    window->setWindowFlags(Qt::Window);
+    //Causes segfault now
+    //window->handle()->setWindowFlags(Qt::Window);
     //window->setMouseGrabEnabled(true);
     app.setOverrideCursor( QCursor( Qt::BlankCursor ) );
     //window->showFullScreen();
