@@ -13,7 +13,10 @@ OTHER_FILES += \
     Julia.qml \
     Raspberry.qml \ 
     VideoFx.qml \
-    Scratchpad.qml
+    Scratchpad.qml \
+    MiniRaspberry.png \
+    Raspberry.png \
+    qt-logo.png
 
 HEADERS += \
     codemodel.h \
