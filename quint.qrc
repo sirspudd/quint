@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>HelloWorld.qml</file>
+        <file>Fly.qml</file>
+        <file>Julia.qml</file>
+        <file>quint.qml</file>
+        <file>Raspberry.qml</file>
+        <file>VideoFx.qml</file>
+        <file>qt-logo.png</file>
+        <file>MiniRaspberry.png</file>
+        <file>Raspberry.png</file>
+    </qresource>
+</RCC>

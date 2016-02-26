@@ -81,40 +81,41 @@ Rectangle {
         ShaderEffectSource {
             id: rasp
             smooth: true
-            sourceItem: Image { source:"Raspberry.png"; smooth: true; }
+            sourceItem: Image { source:"qrc:///Raspberry.png"; smooth: true; }
             wrapMode: ShaderEffectSource.Repeat
             mipmap: true
         }
         ShaderEffectSource {
             id: minirasp
             smooth: true
-            sourceItem: Image { source:"MiniRaspberry.png"; smooth: true; }
+            sourceItem: Image { source:"qrc:///MiniRaspberry.png"; smooth: true; }
             wrapMode: ShaderEffectSource.Repeat
             //mipmap: true
         }
         ShaderEffectSource {
             id: qtlogo
             smooth: true
-            sourceItem: Image { source:"qt-logo.png"; smooth: true; }
+            sourceItem: Image { source:"qrc:///qt-logo.png"; smooth: true; }
             wrapMode: ShaderEffectSource.Repeat
             //mipmap: true
         }
         MediaPlayer {
             id: mp
+            /*
             source: "big_buck_bunny_720p_surround.avi"
-            //playing: false
+            playing: false
             Component.onCompleted: {
                 playTimer.start();
-            }
+            }*/
         }
-        Timer {
+        /*Timer {
             id: playTimer
             interval: 5000
             running: true
             onTriggered: {
                 mp.playing = true;
             }
-        }
+        }*/
         VideoOutput { id:videooutput; source: mp; anchors.fill: parent; visible: false}
         property real time
         NumberAnimation on time { from:0;to:100;duration:100000;loops:Animation.Infinite;running:true}

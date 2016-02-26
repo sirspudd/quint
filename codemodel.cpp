@@ -28,12 +28,12 @@ SOFTWARE.
 
 CodeModel::CodeModel() {
     // Put some programs there
-    QFile f("Scratchpad.qml"); f.open(QIODevice::ReadOnly); m_program << f.readAll(); f.close();
-    f.setFileName("HelloWorld.qml"); f.open(QIODevice::ReadOnly); m_program << f.readAll(); f.close();
-    f.setFileName("Raspberry.qml"); f.open(QIODevice::ReadOnly); m_program << f.readAll(); f.close();
-    f.setFileName("Julia.qml"); f.open(QIODevice::ReadOnly); m_program << f.readAll(); f.close();
-    f.setFileName("Fly.qml"); f.open(QIODevice::ReadOnly); m_program << f.readAll(); f.close();
-    f.setFileName("VideoFx.qml"); f.open(QIODevice::ReadOnly); m_program << f.readAll(); f.close();
+    QFile f("/tmp/Scratchpad.qml"); if (f.exists()) { f.open(QIODevice::ReadOnly); m_program << f.readAll(); f.close(); } else { f.setFileName(":/HelloWorld.qml"); f.open(QIODevice::ReadOnly); m_program << f.readAll(); f.close(); }
+    f.setFileName(":/HelloWorld.qml"); f.open(QIODevice::ReadOnly); m_program << f.readAll(); f.close();
+    f.setFileName(":/Raspberry.qml"); f.open(QIODevice::ReadOnly); m_program << f.readAll(); f.close();
+    f.setFileName(":/Julia.qml"); f.open(QIODevice::ReadOnly); m_program << f.readAll(); f.close();
+    f.setFileName(":/Fly.qml"); f.open(QIODevice::ReadOnly); m_program << f.readAll(); f.close();
+    f.setFileName(":/VideoFx.qml"); f.open(QIODevice::ReadOnly); m_program << f.readAll(); f.close();
 }
 
 void CodeModel::setProgram(QString program)
@@ -41,7 +41,7 @@ void CodeModel::setProgram(QString program)
     // Assume this is only called with a good program
     m_programString = program;
     // Save it to the scratchpad
-    QFile f("Scratchpad.qml");
+    QFile f("/tmp/Scratchpad.qml");
     f.open(QIODevice::ReadWrite|QIODevice::Truncate);
     f.write(program.toUtf8());
     f.close();
