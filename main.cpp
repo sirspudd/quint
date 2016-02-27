@@ -59,7 +59,7 @@ int main(int argc, char ** argv)
     window = qxView;
     qxView->rootContext()->setContextProperty("codemodel",model);
     qxView->rootContext()->setContextProperty("view",qxView);
-    qxView->setSource(QUrl::fromLocalFile("quint.qml"));
+    qxView->setSource(QUrl("qrc:/quint.qml"));
 
     QObject::connect(engine, SIGNAL(quit()), QCoreApplication::instance(), SLOT(quit()));
 
