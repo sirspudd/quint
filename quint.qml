@@ -147,7 +147,6 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width
         height: parent.height*0.66
-        focus: true
         color: "#7F000000"
         opacity: 1.0
         Behavior on opacity { NumberAnimation { duration: 200 } }
