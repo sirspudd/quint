@@ -36,12 +36,21 @@ SOFTWARE.
 
 #include <QtCore/qmath.h>
 
+#include <QSurfaceFormat>
+
 #include "codemodel.h"
 
 #include "quintview.h"
 
 int main(int argc, char ** argv)
 {
+    QSurfaceFormat format = QSurfaceFormat::defaultFormat();
+    format.setAlphaBufferSize(8);
+    format.setRedBufferSize(8);
+    format.setGreenBufferSize(8);
+    format.setBlueBufferSize(8);
+    QSurfaceFormat::setDefaultFormat(format);
+
     QGuiApplication app(argc, argv);
     QWindow *window = 0;
     QQmlEngine *engine = 0;
