@@ -120,25 +120,6 @@ Rectangle {
         property real time
         NumberAnimation on time { from:0;to:100;duration:100000;loops:Animation.Infinite;running:true}
     }
-    // Quit button
-
-    Rectangle {
-        anchors.right: parent.right
-        anchors.top: parent.top
-        width: 30
-        height: 30
-        color: "Grey"
-        opacity: 0.5
-        Text {
-            anchors.centerIn: parent
-            color: "white"
-            text: "X"
-        }
-        MouseArea {
-            anchors.fill: parent
-            onClicked: Qt.quit()
-        }
-    }
 
     // Here's the code editor
     Rectangle {
@@ -153,9 +134,7 @@ Rectangle {
         Keys.onPressed: {
             if (event.key == Qt.Key_Return) {
                 codemodel.publish();
-            } else if (event.key == Qt.Key_Escape) {
-                Qt.quit(); // Tired of using the mouse to quit
-            } else if (event.key == Qt.Key_F1) {
+            } else if ((event.key == Qt.Key_Escape) || (event.key == Qt.Key_F1)) {
                 opacity = (opacity==1.0)?0.0:1.0;
             } else if (event.key == Qt.Key_F2) {
                 editor.fontScale *= 1.1;

@@ -72,15 +72,8 @@ int main(int argc, char ** argv)
 
     QObject::connect(engine, SIGNAL(quit()), QCoreApplication::instance(), SLOT(quit()));
 
-    //window->setWindowFlags(Qt::Window | Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
-    //Causes segfault now
-    //window->handle()->setWindowFlags(Qt::Window);
-    //window->setMouseGrabEnabled(true);
     app.setOverrideCursor( QCursor( Qt::BlankCursor ) );
-    //window->showFullScreen();
-    //window->showMaximized();
-    window->showMaximized();
-    window->setVisible(true);
+    window->showFullScreen();
 
     exitCode = app.exec();
 
